@@ -1,4 +1,4 @@
--2class Element:
+class Element:
 	def __init__(self,symbol,name,atomicNumber,atomicMass,charge):
 		self.symbol = symbol
 		self.name = name

@@ -1,7 +1,9 @@
-import ElementInfoClass.py
-def mm(element):
-  print(eval('element.atomicMass'))
+from ElementInfoClass import *
+print(eval('He.name'))
 def MolarMass(formula):
   l = len(formula)
-  #interpret molecular formula
-  
+  temp
+  for i,c in enumerate(formula):
+    
+  print(formula[2].isdigit())
+MolarMass("Na2")

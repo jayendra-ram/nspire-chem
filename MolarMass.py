@@ -1,5 +1,7 @@
 import ElementInfoClass.py
 def mm(element):
-  print(eval(element.atomicMass))
+  print(eval('element.atomicMass'))
 def MolarMass(formula):
-  print(eval('x.atomicMass'))
+  l = len(formula)
+  #interpret molecular formula
+  

@@ -1,11 +1,14 @@
 class Element:
 	def __init__(self,symbol,name,atomicNumber,atomicMass,charge):
-		self.symbol = symbol
-		self.name = name
-		self.atomicNumber = atomicNumber
-		self.atomicMass = atomicMass
-		self.charge = charge
-
+		self.symbol = symbol					#Atomic Symbol for Element
+		self.name = name					#English Name for Element
+		self.atomicNumber = atomicNumber			#Atomic Number for Element
+		self.atomicMass = atomicMass				#Atomic Mass (Molar Mass) for Element
+		self.charge = charge					#Standard Charge of Element
+				"""
+				IMPORTANT NOTES:
+				-Placeholder for "charge" in an element with multiple charges or unknown charges is 100
+				"""
 H = Element("H","Hydrogen",1,1.01,1)
 He = Element("He","Helium",2,4.00,0)
 Li = Element("Li","Lithium",3,6.94,1)

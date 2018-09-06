@@ -1,2 +1,2 @@
 # nspire-chem
-Chemistry Programs written for TI-Nspire
+Chemistry Programs written in Python for TI-Nspire

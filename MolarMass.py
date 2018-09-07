@@ -1,10 +1,12 @@
 from ElementInfoClass import *
 def MolarMass(formula):
-  formula += "   "
+  #INITIALIZATION
+  formula += "   "#DO NOT DELETE
   temp = ""
   mass = 0
   tempMass = 0
   amount = 1
+  #LOOP
   for i,c in enumerate(formula):
     if(c.istitle()):
       temp += c
@@ -18,6 +20,7 @@ def MolarMass(formula):
           amount = int(formula[i+1])
           if(formula[i+3].isdigit()):
             amount = (10 * int(formula[i+2])) + int(formula[i+3])
+      #Finalization
       tempMass = eval(temp + '.atomicMass')
       tempMass *= amount
       mass += tempMass

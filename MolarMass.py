@@ -17,7 +17,7 @@ def MolarMass(formula):
       if(formula[i+1].islower()):
         temp += formula[i+1]
         if(formula[i+2].isdigit()):
-          amount = int(formula[i+1])
+          amount = int(formula[i+2])
           if(formula[i+3].isdigit()):
             amount = (10 * int(formula[i+2])) + int(formula[i+3])
       #Finalization

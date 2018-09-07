@@ -31,3 +31,4 @@ def MolarMass(formula):
 
 #NOTE:
 #-Subscript following variable cannot be larger than 100
+#-Input must be string

@@ -1,11 +1,15 @@
 from ElementInfoClass import *
 def MolarMass(formula):
   #INITIALIZATION
-  formula += "   "#DO NOT DELETE
+  formula += "   "
   temp = ""
   mass = 0
   tempMass = 0
+  PAtempMass = 0
+  PAMass = 0
+  tempAmount = 1
   amount = 1
+  polyAtomicIon = False
   #LOOP
   for i,c in enumerate(formula):
     if(c.istitle()):
@@ -20,15 +24,33 @@ def MolarMass(formula):
           amount = int(formula[i+2])
           if(formula[i+3].isdigit()):
             amount = (10 * int(formula[i+2])) + int(formula[i+3])
-      #Finalization
-      tempMass = eval(temp + '.atomicMass')
-      tempMass *= amount
-      mass += tempMass
-      temp = ""
-      tempMass = 0
-      amount = 1
+      if(polyAtomicIon == False):
+        tempMass = eval(temp + '.atomicMass')
+        tempMass *= amount
+        mass += tempMass
+        temp = ""
+        tempMass = 0
+        amount = 1
+      if(polyAtomicIon == True):
+        PAtempMass = eval(temp + '.atomicMass')
+        PAtempMass *= amount
+        PAMass += PAtempMass
+        temp = ""
+        PAtempMass = 0
+        amount = 1
+    if(c == "("):
+      polyAtomicIon = True
+      for j,d in enumerate(formula):
+        if(d == ")"):
+          if(formula[j+1].isdigit()):
+            tempAmount = int(formula[j+1])
+            if(formula[j+2].isdigit()):
+              tempAmount = (10 * int(formula[j+1])) + int(formula[j+2])
+    if(c == ")"):
+      PAMass *= tempAmount
+      mass += PAMass
+      polyAtomicIon = False
   return round(mass,2)
-
 #NOTE:
 #-Subscript following variable cannot be larger than 100
 #-Input must be string

@@ -35,21 +35,20 @@ def MolarMass(formula):
         PAtempMass = eval(temp + '.atomicMass')
         PAtempMass *= amount
         PAMass += PAtempMass
-        temp = ""
         PAtempMass = 0
+        temp = ""
         amount = 1
     if(c == "("):
       polyAtomicIon = True
-      for j,d in enumerate(formula):
-        if(d == ")"):
-          if(formula[j+1].isdigit()):
-            tempAmount = int(formula[j+1])
-            if(formula[j+2].isdigit()):
-              tempAmount = (10 * int(formula[j+1])) + int(formula[j+2])
     if(c == ")"):
-      PAMass *= tempAmount
-      mass += PAMass
+      if(formula[i+1].isdigit()):
+        tempAmount = int(formula[i+1])
+        if(formula[i+2].isdigit()):
+          tempAmount = (10 * int(formula[i+1])) + int(formula[i+2])
+      mass += PAMass * tempAmount
       polyAtomicIon = False
+      tempAmount = 1
+      PAMass = 0
   return round(mass,2)
 #NOTE:
 #-Subscript following variable cannot be larger than 100

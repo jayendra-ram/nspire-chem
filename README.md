@@ -18,6 +18,9 @@ Goals:
 -UI for python for TI-nspire
 
 ~~~~~~~~~~
+
+FUTURE?
+
 -Lua port for TI-nspire
 
 -TI-84 App port

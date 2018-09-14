@@ -5,9 +5,11 @@ Goals:
 
 -Molar Mass Calculator ✓
 
+-Limiting Reactant Calculator
+
 -Stoichiometry Calculator
 
--Equation balancing calculator
+-Equation Balancing Calculator
 
 -Element Naming Program
 
@@ -15,6 +17,7 @@ Goals:
 
 -UI for python for TI-nspire
 
+~~~~~~~~~~
 -Lua port for TI-nspire
 
 -TI-84 App port

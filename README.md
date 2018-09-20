@@ -13,9 +13,14 @@ Goals:
 
 -Element Naming Program
 
+-Combined Gas Law Equation Calculator
+
+-Ideal Gas Law Equation Calculator
+
 -Weak & Strong Acid/Base Calculator (With Titrations)
 
 -UI for python for TI-nspire
+
 
 ~~~~~~~~~~
 

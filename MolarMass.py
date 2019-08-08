@@ -1,6 +1,17 @@
 from ElementInfoClass import *
+def NumAnalyze(string,pos):
+  string[pos]
+  tempbool = True
+  runvar = 0
+  while tempbool == True:
+    runvar += 1
+    if(not(string[pos+runvar].isdigit())):
+      tempbool = False
+  strval = string[pos:pos+runvar]
+  intval = int(strval)
+  return(intval)
+
 def MolarMass(formula):
-  #INITIALIZATION
   formula += "   "
   temp = ""
   mass = 0
@@ -10,20 +21,24 @@ def MolarMass(formula):
   tempAmount = 1
   amount = 1
   polyAtomicIon = False
-  #LOOP
   for i,c in enumerate(formula):
+    if(c == "("):
+      polyAtomicIon = True
+    if(c == ")"):
+      if(formula[i+1].isdigit()):
+        amount = NumAnalyze(formula,i+1)
+      mass += PAMass * tempAmount
+      polyAtomicIon = False
+      tempAmount = 1
+      PAMass = 0
     if(c.istitle()):
       temp += c
       if(formula[i+1].isdigit()):
-        amount = int(formula[i+1])
-        if(formula[i+2].isdigit()):
-          amount = (10 * int(formula[i+1])) + int(formula[i+2])
+        amount = NumAnalyze(formula,i+1)
       if(formula[i+1].islower()):
         temp += formula[i+1]
         if(formula[i+2].isdigit()):
-          amount = int(formula[i+2])
-          if(formula[i+3].isdigit()):
-            amount = (10 * int(formula[i+2])) + int(formula[i+3])
+          amount = NumAnalyze(formula,i+2)
       if(polyAtomicIon == False):
         tempMass = eval(temp + '.atomicMass')
         tempMass *= amount
@@ -38,18 +53,4 @@ def MolarMass(formula):
         PAtempMass = 0
         temp = ""
         amount = 1
-    if(c == "("):
-      polyAtomicIon = True
-    if(c == ")"):
-      if(formula[i+1].isdigit()):
-        tempAmount = int(formula[i+1])
-        if(formula[i+2].isdigit()):
-          tempAmount = (10 * int(formula[i+1])) + int(formula[i+2])
-      mass += PAMass * tempAmount
-      polyAtomicIon = False
-      tempAmount = 1
-      PAMass = 0
   return round(mass,2)
-#NOTE:
-#-Subscript following variable cannot be larger than 100
-#-Input must be string

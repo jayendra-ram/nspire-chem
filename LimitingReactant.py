@@ -23,3 +23,7 @@ def LimitingReactant(element1,amount1,coef1,*args):
     if(mass == 3):
       mass = 0
   return(el)
+# Element is case-sensitive
+# Amount must be given in grams
+# Coefficient must be integer value
+# NEEDS TESTING!

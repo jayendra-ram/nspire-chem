@@ -5,11 +5,11 @@ Goals:
 
 -Molar Mass Calculator ✓
 
--Limiting Reactant Calculator
+-Limiting Reactant Calculator ✓ (Requires input to be in grams)
+
+-Equation Balancing Calculator ✓
 
 -Stoichiometry Calculator
-
--Equation Balancing Calculator
 
 -Element Naming Program
 

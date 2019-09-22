@@ -2,6 +2,23 @@ import numpy as np
 from sympy import *
 from math import gcd
 
+def insert(original, new, pos):
+  return original[:pos] + new + original[pos:]
+
+def output(string,coefs):
+  finalstring = string
+  strList = []
+  runval = 0
+  addval = 0
+  for x,v in enumerate(coefs):
+    strList.append(str(v))
+  for i,c in enumerate(string):
+    if((i == 0) or (c.istitle() and string[i-1] == ' ')):
+      finalstring = insert(finalstring, strList[runval], i+addval)
+      addval += len(strList[runval])
+      runval += 1;
+  return(finalstring)
+
 def lcm(a):
   lcm = a[0]
   for i in a[1:]:
@@ -121,7 +138,10 @@ def Balance(Equation):
     finalList.append(lcmDenom)
   if(len(FracRow) > tempMatrix.shape[1]):
     finalList = finalList[:-1]
-  return(finalList)
+  return(output(Equation,finalList))
 
 print(Balance("K4Fe(CN)6 + KMnO4 + H2SO4 -> KHSO4 + Fe2(SO4)3 + MnSO4 + HNO3 + CO2 + H2O"))
-#Answer for 'K4Fe(CN)6 + KMnO4 + H2SO4 -> KHSO4 + Fe2(SO4)3 + MnSO4 + HNO3 + CO2 + H2O' should be: [10,122,299,162,5,122,60,60,188]
+# Answer for 'K4Fe(CN)6 + KMnO4 + H2SO4 -> KHSO4 + Fe2(SO4)3 + MnSO4 + HNO3 + CO2 + H2O' should be [10,122,299,162,5,122,60,60,188]
+# Answer for 'HIO3 + FeI2 + HCl -> FeCl3 + ICl + H2O' should be [5,4,25,4,13,15]
+# Answer for 'C12H26 + O2 -> CO2 + H2O' should be [2,37,24,26]
+# Answer for 'K4Fe(SCN)6 + K2Cr2O7 + H2SO4 -> Fe2(SO4)3 + Cr2(SO4)3 + CO2 + H2O + K2SO4 + KNO3' should be [6,97,355,3,97,36,355,91,36]
